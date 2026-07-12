@@ -12,7 +12,7 @@ export function Destaques() {
       <div className="container py-20">
         <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-leaf-700">
+            <p className="mb-3 font-semibold text-xs uppercase tracking-[0.08em] text-leaf-700">
               Destaques
             </p>
             <h2 className="max-w-2xl text-balance text-3xl font-semibold tracking-tight text-warm-900 md:text-4xl">
@@ -21,7 +21,7 @@ export function Destaques() {
           </div>
           <Link
             href="/tecidos"
-            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-leaf-700 transition hover:gap-3"
+            className="inline-flex items-center gap-2 font-semibold text-xs uppercase tracking-wider text-leaf-700 transition hover:gap-3"
           >
             Ver catálogo completo
             <ArrowRight className="h-4 w-4" />

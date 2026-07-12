@@ -97,10 +97,11 @@
     --radius: 0.5rem;
 
     /* Tipografia ------------------------------------------------------ */
-    /* --font-sans, --font-mono e --font-display sao injetadas via next/font
-       em app/layout.tsx (DM Sans / DM Mono / Cormorant Garamond).
-       Tailwind: font-sans (UI), font-mono (caps tracked), font-display
-       (wordmark TECIL, titulos editoriais). */
+    /* --font-sans e --font-display sao injetadas via next/font
+       em app/layout.tsx (DM Sans / Fraunces).
+       Tailwind: font-sans (UI e rotulos caps), font-display
+       (wordmark TECIL, titulos). Rotulos caps: font-semibold +
+       tracking 0.05-0.08em, sem fonte dedicada. */
   }
 }
 

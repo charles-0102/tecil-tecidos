@@ -9,7 +9,7 @@ export default function NotFound() {
     <>
       <Header />
       <main className="container flex min-h-[50vh] flex-col items-center justify-center py-24 text-center">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-leaf-700">
+        <p className="font-semibold text-xs uppercase tracking-[0.08em] text-leaf-700">
           Erro 404
         </p>
         <h1 className="mt-3 font-display text-4xl font-semibold text-warm-900">

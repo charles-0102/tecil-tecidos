@@ -10,7 +10,7 @@ export function Sobre() {
     <section id="sobre" className="border-b border-warm-150 bg-warm-0">
       <div className="container grid gap-16 py-20 md:grid-cols-12">
         <div className="md:col-span-7">
-          <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-leaf-700">
+          <p className="mb-3 font-semibold text-xs uppercase tracking-[0.08em] text-leaf-700">
             Sobre a Tecil
           </p>
           <h2 className="mb-8 text-balance text-3xl font-semibold tracking-tight text-warm-900 md:text-4xl">
@@ -39,10 +39,10 @@ export function Sobre() {
           <div className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-warm-150 bg-warm-150">
             {numeros.map((n) => (
               <div key={n.label} className="bg-warm-0 p-6">
-                <div className="font-mono text-2xl font-medium tracking-tight text-warm-900 md:text-3xl">
+                <div className="text-2xl font-semibold tracking-tight text-warm-900 md:text-3xl">
                   {n.value}
                 </div>
-                <div className="mt-2 font-mono text-[11px] uppercase tracking-wider text-warm-500">
+                <div className="mt-2 font-semibold text-[11px] uppercase tracking-wider text-warm-500">
                   {n.label}
                 </div>
               </div>

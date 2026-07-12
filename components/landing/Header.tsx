@@ -13,11 +13,11 @@ const navItems = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-warm-150/80 bg-warm-50/85 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-leaf-700/30 bg-leaf-500">
       <div className="container flex flex-col items-center gap-3 py-4 sm:h-16 sm:flex-row sm:justify-between sm:gap-8 sm:py-0">
         <Link href="/" aria-label="Tecil Tecidos — página inicial" className="flex items-baseline gap-3">
-          <TecilLogo className="text-[26px]" />
-          <span className="hidden font-mono text-[10px] uppercase tracking-[0.22em] text-warm-500 md:inline">
+          <TecilLogo variant="white" className="text-[26px]" />
+          <span className="hidden font-semibold text-[10px] uppercase tracking-[0.08em] text-leaf-100 md:inline">
             tecidos
           </span>
         </Link>
@@ -28,7 +28,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-[11px] font-medium uppercase tracking-[0.18em] text-warm-600 transition-colors hover:text-leaf-700"
+                className="text-[11px] font-medium uppercase tracking-[0.08em] text-white/85 transition-colors hover:text-white"
               >
                 {item.label}
               </Link>
@@ -41,7 +41,7 @@ export function Header() {
             )}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-9 items-center gap-2 rounded-md bg-leaf-600 px-4 text-[11px] font-medium uppercase tracking-[0.14em] text-white transition hover:bg-leaf-700"
+            className="inline-flex h-9 items-center gap-2 rounded-md bg-warm-0 px-4 text-[11px] font-medium uppercase tracking-[0.05em] text-leaf-700 shadow-xs transition hover:bg-leaf-50"
           >
             <MessageCircle className="h-3.5 w-3.5" />
             {COMPANY.whatsapp.display}

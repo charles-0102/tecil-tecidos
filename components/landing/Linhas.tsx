@@ -22,7 +22,7 @@ export function Linhas() {
     <section id="linhas" className="border-b border-warm-150 bg-warm-50">
       <div className="container py-20">
         <div className="mb-12 max-w-2xl">
-          <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-leaf-700">
+          <p className="mb-3 font-semibold text-xs uppercase tracking-[0.08em] text-leaf-700">
             Nossas linhas
           </p>
           <h2 className="text-balance text-3xl font-semibold tracking-tight text-warm-900 md:text-4xl">
@@ -52,17 +52,17 @@ export function Linhas() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 )}
-                <span className="absolute bottom-3 left-3 rounded-full bg-warm-900/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white backdrop-blur-sm">
+                <span className="absolute bottom-3 left-3 rounded-full bg-warm-900/70 px-3 py-1 font-semibold text-[10px] uppercase tracking-[0.08em] text-white backdrop-blur-sm">
                   {c.total} {c.total === 1 ? "tecido" : "tecidos"}
                 </span>
               </div>
               <div className="flex flex-1 flex-col gap-3 p-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-leaf-700">
+                <p className="font-semibold text-[10px] uppercase tracking-[0.08em] text-leaf-700">
                   {c.eyebrow}
                 </p>
                 <h3 className="text-lg font-medium text-warm-900">{c.titulo}</h3>
                 <p className="text-sm leading-relaxed text-warm-600">{c.intro}</p>
-                <span className="mt-auto inline-flex items-center gap-1 pt-2 font-mono text-xs uppercase tracking-wider text-leaf-700 transition group-hover:gap-2">
+                <span className="mt-auto inline-flex items-center gap-1 pt-2 font-semibold text-xs uppercase tracking-wider text-leaf-700 transition group-hover:gap-2">
                   Ver tecidos
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </span>

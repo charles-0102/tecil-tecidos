@@ -18,7 +18,7 @@ export function Hero() {
       />
       <div className="relative z-10 container grid items-center gap-12 py-16 md:grid-cols-12 md:gap-16 md:py-24 lg:py-28">
         <div className="md:col-span-7">
-          <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-leaf-700">
+          <p className="mb-3 font-semibold text-xs uppercase tracking-[0.08em] text-leaf-700">
             Loja de tecidos · Envio grátis para todo o Brasil
           </p>
           <h1 className="text-balance font-display text-5xl font-semibold leading-[1.02] tracking-tight text-warm-900 md:text-6xl lg:text-7xl">
@@ -49,7 +49,7 @@ export function Hero() {
             </a>
           </div>
 
-          <p className="mt-9 font-mono text-[11px] uppercase tracking-[0.18em] text-warm-500">
+          <p className="mt-9 font-semibold text-[11px] uppercase tracking-[0.08em] text-warm-500">
             Corte mínimo de 3 metros · Parcele no cartão · 5% off no PIX
           </p>
         </div>
@@ -102,13 +102,13 @@ function SwatchCard({ tecido, priority }: { tecido: Tecido; priority?: boolean }
         />
       </div>
       <div className="space-y-1 px-3.5 py-3">
-        <p className="truncate font-mono text-[10px] uppercase tracking-[0.16em] text-leaf-700">
+        <p className="truncate font-semibold text-[10px] uppercase tracking-[0.08em] text-leaf-700">
           {tecido.linha} · {tecido.composicao}
         </p>
         <h3 className="truncate font-display text-base leading-tight text-warm-900">
           {tecido.nome}
         </h3>
-        <p className="font-mono text-[11px] text-warm-600">
+        <p className="text-[11px] font-medium text-warm-600">
           {formatBRL(tecido.precoMetro)} <span className="text-warm-400">/ metro</span>
         </p>
       </div>

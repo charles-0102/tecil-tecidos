@@ -166,7 +166,7 @@ export function CatalogClient() {
 
       {/* Contagem + limpar */}
       <div className="mt-6 flex items-center justify-between gap-4">
-        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-warm-500">
+        <p className="font-semibold text-[11px] uppercase tracking-[0.08em] text-warm-500">
           {filtrados.length} {filtrados.length === 1 ? "tecido" : "tecidos"}
           {categoria !== "todas" && ` · ${CATEGORIAS[categoria].titulo}`}
         </p>
@@ -174,7 +174,7 @@ export function CatalogClient() {
           <button
             type="button"
             onClick={clearFilters}
-            className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-warm-500 transition hover:text-leaf-700"
+            className="inline-flex items-center gap-1.5 font-semibold text-[11px] uppercase tracking-[0.05em] text-warm-500 transition hover:text-leaf-700"
           >
             <X className="h-3.5 w-3.5" />
             Limpar filtros
@@ -210,7 +210,7 @@ function CategoriaPill({
       type="button"
       onClick={onClick}
       className={cn(
-        "h-9 rounded-full border px-4 font-mono text-[11px] uppercase tracking-[0.12em] transition",
+        "h-9 rounded-full border px-4 text-[11px] font-medium uppercase tracking-[0.05em] transition",
         active
           ? "border-leaf-600 bg-leaf-600 text-white"
           : "border-warm-200 bg-warm-0 text-warm-600 hover:border-leaf-400 hover:text-leaf-700",
@@ -224,7 +224,7 @@ function CategoriaPill({
 function EmptyState({ onClear }: { onClear: () => void }) {
   return (
     <div className="mt-6 rounded-lg border border-dashed border-warm-200 bg-warm-0 px-6 py-16 text-center">
-      <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-warm-500">
+      <p className="font-semibold text-[11px] uppercase tracking-[0.08em] text-warm-500">
         Nenhum resultado
       </p>
       <h3 className="mt-3 text-xl font-medium text-warm-900">

@@ -62,7 +62,7 @@ export default function Page({ params }: PageProps) {
           <div className="container py-10 md:py-16">
             <Link
               href={`/tecidos?categoria=${tecido.categoria}`}
-              className="mb-8 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-warm-500 transition hover:text-leaf-700"
+              className="mb-8 inline-flex items-center gap-2 font-semibold text-[11px] uppercase tracking-[0.08em] text-warm-500 transition hover:text-leaf-700"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               {categoria.titulo}
@@ -81,14 +81,14 @@ export default function Page({ params }: PageProps) {
                     className="object-cover"
                   />
                 </div>
-                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-warm-400">
+                <p className="mt-3 font-semibold text-[10px] uppercase tracking-[0.08em] text-warm-400">
                   Amostra ilustrativa · cores podem variar levemente na tela
                 </p>
               </div>
 
               {/* Informações */}
               <div className="md:col-span-6">
-                <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-leaf-700">
+                <p className="mb-3 font-semibold text-xs uppercase tracking-[0.08em] text-leaf-700">
                   {tecido.linha} · {tecido.estampa ?? "Liso"}
                 </p>
                 <h1 className="text-balance font-display text-4xl font-semibold leading-[1.05] tracking-tight text-warm-900 md:text-5xl">
@@ -99,13 +99,13 @@ export default function Page({ params }: PageProps) {
                   <AvailabilityBadge disponibilidade={tecido.disponibilidade} />
                   {tecido.disponibilidade === "ultimos_metros" &&
                     tecido.estoqueMetros !== null && (
-                      <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-warm-500">
+                      <span className="font-semibold text-[11px] uppercase tracking-[0.05em] text-warm-500">
                         ~{tecido.estoqueMetros} m restantes
                       </span>
                     )}
                   {tecido.disponibilidade === "em_estoque" &&
                     tecido.estoqueMetros !== null && (
-                      <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-warm-500">
+                      <span className="font-semibold text-[11px] uppercase tracking-[0.05em] text-warm-500">
                         {tecido.estoqueMetros} m em estoque
                       </span>
                     )}
@@ -116,7 +116,7 @@ export default function Page({ params }: PageProps) {
                     <span className="text-4xl font-semibold tracking-tight text-warm-900">
                       {formatBRL(tecido.precoMetro)}
                     </span>
-                    <span className="font-mono text-xs uppercase tracking-[0.12em] text-warm-500">
+                    <span className="font-semibold text-xs uppercase tracking-[0.05em] text-warm-500">
                       / metro
                     </span>
                   </div>
@@ -134,7 +134,7 @@ export default function Page({ params }: PageProps) {
                     <MessageCircle className="h-4 w-4" />
                     Pedir pelo WhatsApp
                   </a>
-                  <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-warm-400">
+                  <p className="mt-3 text-center font-semibold text-[10px] uppercase tracking-[0.08em] text-warm-400">
                     Atendimento humano · {COMPANY.policies.freteGratis.toLowerCase()}
                   </p>
                 </div>
@@ -150,7 +150,7 @@ export default function Page({ params }: PageProps) {
                 </dl>
 
                 <div className="mt-8">
-                  <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-warm-500">
+                  <p className="mb-2 font-semibold text-[10px] uppercase tracking-[0.08em] text-warm-500">
                     Sobre o tecido
                   </p>
                   <p className="text-sm leading-relaxed text-warm-700">
@@ -171,7 +171,7 @@ export default function Page({ params }: PageProps) {
                 </h2>
                 <Link
                   href={`/tecidos?categoria=${tecido.categoria}`}
-                  className="font-mono text-xs uppercase tracking-wider text-leaf-700 hover:underline"
+                  className="font-semibold text-xs uppercase tracking-wider text-leaf-700 hover:underline"
                 >
                   Ver todos
                 </Link>
@@ -194,7 +194,7 @@ export default function Page({ params }: PageProps) {
 function Field({ label, value }: { label: string; value: string }) {
   return (
     <>
-      <dt className="self-baseline font-mono text-[10px] uppercase tracking-[0.16em] text-warm-500">
+      <dt className="self-baseline font-semibold text-[10px] uppercase tracking-[0.08em] text-warm-500">
         {label}
       </dt>
       <dd className="text-sm text-warm-900">{value}</dd>

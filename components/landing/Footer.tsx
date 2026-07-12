@@ -20,7 +20,7 @@ export function Footer() {
         >
           <Instagram className="h-5 w-5" />
         </a>
-        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-warm-400">
+        <span className="font-semibold text-[10px] uppercase tracking-[0.08em] text-warm-400">
           © {new Date().getFullYear()} {COMPANY.name}
         </span>
       </div>
@@ -31,7 +31,7 @@ export function Footer() {
           <div>
             <div className="mb-3 flex items-baseline gap-3">
               <TecilLogo className="text-[26px]" />
-              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-warm-500">
+              <span className="font-semibold text-[11px] uppercase tracking-[0.08em] text-warm-500">
                 tecidos
               </span>
             </div>
@@ -41,7 +41,7 @@ export function Footer() {
           </div>
 
           <div>
-            <div className="mb-3 font-mono text-[11px] uppercase tracking-wider text-warm-500">
+            <div className="mb-3 font-semibold text-[11px] uppercase tracking-wider text-warm-500">
               Tecidos
             </div>
             <ul className="space-y-2 text-sm text-warm-700">
@@ -61,10 +61,10 @@ export function Footer() {
           </div>
 
           <div>
-            <div className="mb-3 font-mono text-[11px] uppercase tracking-wider text-warm-500">
+            <div className="mb-3 font-semibold text-[11px] uppercase tracking-wider text-warm-500">
               Atendimento
             </div>
-            <ul className="space-y-2 font-mono text-sm text-warm-700">
+            <ul className="space-y-2 text-sm text-warm-700">
               <li>{COMPANY.hours.weekdays}</li>
               <li>{COMPANY.hours.saturday}</li>
               <li>{COMPANY.whatsapp.display}</li>
@@ -73,7 +73,7 @@ export function Footer() {
           </div>
 
           <div>
-            <div className="mb-3 font-mono text-[11px] uppercase tracking-wider text-warm-500">
+            <div className="mb-3 font-semibold text-[11px] uppercase tracking-wider text-warm-500">
               Como comprar
             </div>
             <ul className="space-y-2 text-sm text-warm-700">
@@ -95,7 +95,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-warm-200 pt-6 font-mono text-[11px] uppercase tracking-wider text-warm-500 md:flex-row md:items-center">
+        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-warm-200 pt-6 font-semibold text-[11px] uppercase tracking-wider text-warm-500 md:flex-row md:items-center">
           <span>
             © {new Date().getFullYear()} {COMPANY.name}. Todos os direitos reservados.
           </span>

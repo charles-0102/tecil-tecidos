@@ -91,7 +91,7 @@ const config: Config = {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         serif: ["var(--font-display)", "Georgia", "ui-serif", "serif"],
         display: ["var(--font-display)", "Georgia", "ui-serif", "serif"],
-        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+        mono: ["ui-monospace", "monospace"],
       },
       boxShadow: {
         xs: "0 1px 2px rgba(20,24,12,0.04)",

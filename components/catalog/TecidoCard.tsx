@@ -36,7 +36,7 @@ export function TecidoCard({ tecido, className }: Props) {
 
       <div className="flex flex-1 flex-col gap-2 p-4">
         <div className="flex items-center justify-between gap-2">
-          <span className="truncate font-mono text-[10px] uppercase tracking-[0.16em] text-leaf-700">
+          <span className="truncate font-semibold text-[10px] uppercase tracking-[0.08em] text-leaf-700">
             {tecido.linha}
             {tecido.estampa ? ` · ${tecido.estampa}` : " · Liso"}
           </span>
@@ -60,7 +60,7 @@ export function TecidoCard({ tecido, className }: Props) {
           <span className="text-lg font-semibold tracking-tight text-warm-900">
             {formatBRL(tecido.precoMetro)}
           </span>
-          <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-warm-400">
+          <span className="font-semibold text-[11px] uppercase tracking-[0.05em] text-warm-400">
             / metro
           </span>
         </div>

@@ -21,7 +21,7 @@ export default function Page() {
       <main>
         <section className="border-b border-warm-150 bg-gradient-to-b from-warm-50 to-leaf-50/40">
           <div className="container py-12 md:py-16">
-            <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-leaf-700">
+            <p className="mb-3 font-semibold text-xs uppercase tracking-[0.08em] text-leaf-700">
               Catálogo · {TECIDOS.length} tecidos
             </p>
             <h1 className="text-balance font-display text-4xl font-semibold leading-[1.05] tracking-tight text-warm-900 md:text-5xl">

@@ -31,7 +31,7 @@ export function Contato() {
     <section id="contato" className="bg-warm-0">
       <div className="container py-20">
         <div className="mb-12 max-w-2xl">
-          <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-leaf-700">
+          <p className="mb-3 font-semibold text-xs uppercase tracking-[0.08em] text-leaf-700">
             Contato
           </p>
           <h2 className="text-balance text-3xl font-semibold tracking-tight text-warm-900 md:text-4xl">
@@ -57,7 +57,7 @@ export function Contato() {
                 <ArrowUpRight className="h-5 w-5 text-warm-400 transition-colors group-hover:text-leaf-700" />
               </div>
               <div>
-                <div className="mb-2 font-mono text-[11px] uppercase tracking-wider text-warm-500">
+                <div className="mb-2 font-semibold text-[11px] uppercase tracking-wider text-warm-500">
                   {c.label}
                 </div>
                 <div className="text-lg font-medium text-warm-900">{c.value}</div>
@@ -67,7 +67,7 @@ export function Contato() {
           ))}
         </div>
 
-        <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.16em] text-warm-500">
+        <p className="mt-8 font-semibold text-[11px] uppercase tracking-[0.08em] text-warm-500">
           {COMPANY.hours.weekdays} · {COMPANY.hours.saturday}
         </p>
       </div>
