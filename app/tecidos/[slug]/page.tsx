@@ -8,7 +8,6 @@ import { AvailabilityBadge } from "@/components/catalog/AvailabilityBadge";
 import { TecidoCard } from "@/components/catalog/TecidoCard";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
-import { WhatsAppFloat } from "@/components/landing/WhatsAppFloat";
 import { COMPANY, whatsappHref } from "@/lib/company";
 import {
   CATEGORIAS,
@@ -186,7 +185,6 @@ export default function Page({ params }: PageProps) {
         )}
       </main>
       <Footer />
-      <WhatsAppFloat />
     </>
   );
 }

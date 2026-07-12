@@ -41,10 +41,11 @@ export function Header() {
             )}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-9 items-center gap-2 rounded-md bg-warm-0 px-4 text-[11px] font-medium uppercase tracking-[0.05em] text-leaf-700 shadow-xs transition hover:bg-leaf-50"
+            aria-label={`Falar no WhatsApp — ${COMPANY.whatsapp.display}`}
+            className="inline-flex h-9 items-center gap-2 rounded-md bg-warm-0 px-3 text-[11px] font-medium uppercase tracking-[0.05em] text-leaf-700 shadow-xs transition hover:bg-leaf-50 md:px-4"
           >
             <MessageCircle className="h-3.5 w-3.5" />
-            {COMPANY.whatsapp.display}
+            <span className="hidden md:inline">{COMPANY.whatsapp.display}</span>
           </a>
         </div>
       </div>

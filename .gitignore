@@ -3,6 +3,7 @@ node_modules
 out
 dist
 tmp
+*.tsbuildinfo
 .env
 .env.local
 .env*.local
@@ -10,3 +11,4 @@ tmp
 *.log
 .vscode
 .idea
+.vercel

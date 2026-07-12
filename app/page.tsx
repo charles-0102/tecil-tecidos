@@ -6,7 +6,6 @@ import { Linhas } from "@/components/landing/Linhas";
 import { Sobre } from "@/components/landing/Sobre";
 import { Contato } from "@/components/landing/Contato";
 import { Footer } from "@/components/landing/Footer";
-import { WhatsAppFloat } from "@/components/landing/WhatsAppFloat";
 
 export default function Page() {
   return (
@@ -21,7 +20,6 @@ export default function Page() {
         <Contato />
       </main>
       <Footer />
-      <WhatsAppFloat />
     </>
   );
 }

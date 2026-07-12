@@ -4,7 +4,6 @@ import { Suspense } from "react";
 import { CatalogClient } from "@/components/catalog/CatalogClient";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
-import { WhatsAppFloat } from "@/components/landing/WhatsAppFloat";
 import { Skeleton } from "@/components/ui/skeleton";
 import { TECIDOS } from "@/lib/data/products";
 
@@ -44,7 +43,6 @@ export default function Page() {
         </section>
       </main>
       <Footer />
-      <WhatsAppFloat />
     </>
   );
 }
