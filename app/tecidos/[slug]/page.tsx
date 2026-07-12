@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, MessageCircle } from "lucide-react";
 
 import { AvailabilityBadge } from "@/components/catalog/AvailabilityBadge";
-import { TecidoCard } from "@/components/catalog/TecidoCard";
+import { TecidoGrid } from "@/components/catalog/TecidoGrid";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { COMPANY, whatsappHref } from "@/lib/company";
@@ -175,11 +175,7 @@ export default function Page({ params }: PageProps) {
                   Ver todos
                 </Link>
               </div>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {relacionados.map((t) => (
-                  <TecidoCard key={t.id} tecido={t} />
-                ))}
-              </div>
+              <TecidoGrid tecidos={relacionados} variant="strip" />
             </div>
           </section>
         )}

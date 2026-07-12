@@ -1,10 +1,18 @@
+import Link from "next/link";
 import { BadgePercent, CreditCard, MessageCircle, Truck } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const items = [
+const items: {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  link?: { href: string; label: string };
+}[] = [
   {
     icon: Truck,
-    title: "Frete grátis",
-    description: "Enviamos grátis para todo o Brasil, direto da nossa loja.",
+    title: "Frete grátis no Nordeste",
+    description: "Grátis em pedidos a partir de R$ 400 (até 20 kg).",
+    link: { href: "/frete", label: "Ver política de frete" },
   },
   {
     icon: CreditCard,
@@ -38,6 +46,14 @@ export function Diferenciais() {
                 <p className="mt-1 text-[13px] leading-relaxed text-warm-600">
                   {item.description}
                 </p>
+                {item.link && (
+                  <Link
+                    href={item.link.href}
+                    className="mt-1 inline-block text-[13px] font-medium text-leaf-700 underline decoration-leaf-300 underline-offset-2 transition-colors hover:text-leaf-600"
+                  >
+                    {item.link.label}
+                  </Link>
+                )}
               </div>
             </div>
           ))}

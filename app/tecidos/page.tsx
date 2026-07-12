@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { CatalogClient } from "@/components/catalog/CatalogClient";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
+import { tecidoGridClass } from "@/components/catalog/TecidoGrid";
 import { Skeleton } from "@/components/ui/skeleton";
 import { TECIDOS } from "@/lib/data/products";
 
@@ -29,7 +30,7 @@ export default function Page() {
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-warm-600">
               Preço por metro e disponibilidade sempre atualizados. Escolheu?
               É só chamar no WhatsApp para fechar o pedido — corte mínimo de 3
-              metros e envio grátis para todo o Brasil.
+              metros e frete grátis para o Nordeste a partir de R$ 400.
             </p>
           </div>
         </section>
@@ -55,9 +56,9 @@ function CatalogSkeleton() {
           <Skeleton key={i} className="h-9 w-36 rounded-full" />
         ))}
       </div>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+      <div className={tecidoGridClass.catalog}>
         {Array.from({ length: 8 }).map((_, i) => (
-          <Skeleton key={i} className="h-72 rounded-lg" />
+          <Skeleton key={i} className="h-64 rounded-lg sm:h-72" />
         ))}
       </div>
     </div>

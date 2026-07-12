@@ -29,11 +29,8 @@ export function Footer() {
       <div className="container hidden py-12 md:block">
         <div className="grid gap-10 md:grid-cols-4">
           <div>
-            <div className="mb-3 flex items-baseline gap-3">
+            <div className="mb-3">
               <TecilLogo className="text-[26px]" />
-              <span className="font-semibold text-[11px] uppercase tracking-[0.08em] text-warm-500">
-                tecidos
-              </span>
             </div>
             <p className="text-sm leading-relaxed text-warm-600">
               {COMPANY.tagline} {COMPANY.policies.freteGratis}.
@@ -66,7 +63,7 @@ export function Footer() {
             </div>
             <ul className="space-y-2 text-sm text-warm-700">
               <li>{COMPANY.hours.weekdays}</li>
-              <li>{COMPANY.hours.saturday}</li>
+              <li>{COMPANY.hours.friday}</li>
               <li>{COMPANY.whatsapp.display}</li>
               <li>{COMPANY.email.address}</li>
             </ul>
@@ -80,6 +77,11 @@ export function Footer() {
               <li>{COMPANY.policies.corteMinimo}</li>
               <li>{COMPANY.policies.parcelamento}</li>
               <li>{COMPANY.policies.pix}</li>
+              <li>
+                <Link href="/frete" className="hover:text-leaf-700">
+                  Política de frete
+                </Link>
+              </li>
               <li>
                 <a
                   href={COMPANY.social.instagram}

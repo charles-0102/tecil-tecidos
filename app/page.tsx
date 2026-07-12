@@ -10,7 +10,7 @@ import { Footer } from "@/components/landing/Footer";
 export default function Page() {
   return (
     <>
-      <Header />
+      <Header overlay />
       <main>
         <Hero />
         <Diferenciais />

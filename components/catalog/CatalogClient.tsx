@@ -4,7 +4,7 @@ import * as React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { MessageCircle, Search, X } from "lucide-react";
 
-import { TecidoCard } from "@/components/catalog/TecidoCard";
+import { TecidoGrid } from "@/components/catalog/TecidoGrid";
 import { Input } from "@/components/ui/input";
 import { NativeSelect } from "@/components/ui/select";
 import { whatsappHref } from "@/lib/company";
@@ -184,11 +184,7 @@ export function CatalogClient() {
 
       {/* Grid */}
       {filtrados.length > 0 ? (
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-          {filtrados.map((t) => (
-            <TecidoCard key={t.id} tecido={t} />
-          ))}
-        </div>
+        <TecidoGrid tecidos={filtrados} className="mt-6" />
       ) : (
         <EmptyState onClear={clearFilters} />
       )}

@@ -68,7 +68,7 @@ export function Contato() {
         </div>
 
         <p className="mt-8 font-semibold text-[11px] uppercase tracking-[0.08em] text-warm-500">
-          {COMPANY.hours.weekdays} · {COMPANY.hours.saturday}
+          {COMPANY.hours.weekdays} · {COMPANY.hours.friday}
         </p>
       </div>
     </section>

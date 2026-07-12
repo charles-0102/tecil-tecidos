@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s · Tecil Tecidos",
   },
   description:
-    "Tecidos de algodão premium, do liso à estampa. Peripan, Santanense e tricoline estampada — envio grátis para todo o Brasil. Peça pelo WhatsApp.",
+    "Tecidos de algodão premium, do liso à estampa. Peripan, Santanense e tricoline estampada — frete grátis para o Nordeste a partir de R$ 400. Peça pelo WhatsApp.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -8,6 +8,15 @@ export const COMPANY = {
   tagline: "Tecidos de algodão premium, do liso à estampa.",
   segment: "Loja de tecidos",
 
+  location: {
+    city: "Caruaru",
+    uf: "PE",
+    display: "Caruaru – PE",
+  },
+
+  // Tempo de mercado. Confirmar ano de fundação com a loja p/ virar "Desde 20XX".
+  heritage: "Há mais de 20 anos",
+
   whatsapp: {
     raw: "+5581998185225",
     display: "(81) 99818-5225",
@@ -26,15 +35,41 @@ export const COMPANY = {
   },
 
   hours: {
-    weekdays: "Seg. a sex. — 8h às 18h",
-    saturday: "Sáb. — 9h às 13h",
+    weekdays: "Seg. a qui. — 8h às 18h (2h de intervalo)",
+    friday: "Sex. — 8h às 17h, sem intervalo",
   },
 
   policies: {
-    freteGratis: "Enviamos grátis para todo o Brasil",
+    freteGratis: "Frete grátis para o Nordeste a partir de R$ 400",
     parcelamento: "Parcele no cartão de crédito",
     pix: "5% de desconto no PIX",
     corteMinimo: "Corte mínimo de 3 metros por tecido",
+  },
+
+  // Política de frete (valores mocados de referência — trocar pela tabela
+  // real das transportadoras quando fechada). Detalhes na página /frete.
+  shipping: {
+    regiao: "Nordeste",
+    freteGratisMinimo: 400,
+    freteGratisPesoMaxKg: 20,
+    estados: [
+      "Alagoas",
+      "Bahia",
+      "Ceará",
+      "Maranhão",
+      "Paraíba",
+      "Pernambuco",
+      "Piauí",
+      "Rio Grande do Norte",
+      "Sergipe",
+    ],
+    // Faixas p/ pedidos abaixo do mínimo (~200 g por metro de tricoline).
+    faixas: [
+      { peso: "Até 2 kg", metros: "até ~10 m de tecido", valor: 24.9 },
+      { peso: "2 a 5 kg", metros: "até ~25 m de tecido", valor: 34.9 },
+      { peso: "5 a 10 kg", metros: "até ~50 m de tecido", valor: 49.9 },
+      { peso: "10 a 20 kg", metros: "até ~100 m de tecido", valor: 69.9 },
+    ],
   },
 } as const;
 

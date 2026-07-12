@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-import { TecidoCard } from "@/components/catalog/TecidoCard";
+import { TecidoGrid } from "@/components/catalog/TecidoGrid";
 import { getDestaques } from "@/lib/data/products";
 
 export function Destaques() {
@@ -28,11 +28,7 @@ export function Destaques() {
           </Link>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {destaques.map((t) => (
-            <TecidoCard key={t.id} tecido={t} />
-          ))}
-        </div>
+        <TecidoGrid tecidos={destaques} variant="strip" />
       </div>
     </section>
   );
