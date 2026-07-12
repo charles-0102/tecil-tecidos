@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================================
+   TECIL TECIDOS — Design System
+   Tipografia: DM Sans + DM Mono + Cormorant Garamond (wordmark/serifa)
+   Paleta: verde folha institucional (#3ca833) + neutros linho (#cbb487)
+   ===================================================================== */
+
+@layer base {
+  :root {
+    /* Paleta primaria "leaf" (verde Tecil, referencia hex) --------------
+       leaf-50  #eef8ec   leaf-500 #3ca833  (Verde do logo/site)
+       leaf-100 #d8efd3   leaf-600 #338a2c  (Institucional / botoes)
+       leaf-200 #b0dfa8   leaf-700 #2a6f24  (Hover)
+       leaf-300 #7fc973   leaf-800 #1f521b  (Active)
+       leaf-400 #55b449   leaf-900 #143612
+       ------------------------------------------------------------------ */
+    --leaf-50: 113 40% 95%;
+    --leaf-100: 112 45% 88%;
+    --leaf-200: 112 45% 77%;
+    --leaf-300: 112 44% 62%;
+    --leaf-400: 113 43% 50%;
+    --leaf-500: 114 53% 43%;
+    --leaf-600: 114 52% 36%;
+    --leaf-700: 115 51% 29%;
+    --leaf-800: 115 50% 21%;
+    --leaf-900: 116 50% 14%;
+
+    /* Areia / linho (secundaria do site, #cbb487) ---------------------- */
+    --sand-100: 41 42% 92%;
+    --sand-200: 41 41% 85%;
+    --sand-300: 40 40% 76%;
+    --sand-500: 40 40% 66%;
+    --sand-700: 39 30% 45%;
+
+    /* Neutros quentes com tom de linho --------------------------------- */
+    --warm-0: 0 0% 100%;
+    --warm-50: 42 30% 97%;
+    --warm-100: 42 26% 93%;
+    --warm-150: 41 22% 88%;
+    --warm-200: 40 19% 82%;
+    --warm-300: 40 14% 71%;
+    --warm-400: 39 11% 55%;
+    --warm-500: 38 10% 41%;
+    --warm-600: 36 11% 30%;
+    --warm-700: 34 12% 21%;
+    --warm-800: 32 12% 13%;
+    --warm-900: 30 12% 7%;
+
+    /* Status ---------------------------------------------------------- */
+    --green-50: 142 36% 93%;
+    --green-500: 147 50% 36%;
+    --green-600: 147 52% 29%;
+
+    --amber-50: 41 84% 94%;
+    --amber-500: 38 84% 42%;
+    --amber-600: 38 84% 33%;
+
+    --red-50: 0 73% 95%;
+    --red-500: 0 58% 51%;
+    --red-600: 0 58% 41%;
+
+    /* Tokens semanticos do shadcn/Tailwind (HSL, sem hsl()) ------------ */
+    --background: var(--warm-50);
+    --foreground: var(--warm-900);
+
+    --card: var(--warm-0);
+    --card-foreground: var(--warm-900);
+
+    --muted: var(--warm-100);
+    --muted-foreground: var(--warm-500);
+
+    --primary: var(--leaf-600);
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: var(--warm-100);
+    --secondary-foreground: var(--warm-900);
+
+    --accent: var(--leaf-500);
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: var(--red-500);
+    --destructive-foreground: 0 0% 100%;
+
+    --success: var(--green-500);
+    --success-foreground: 0 0% 100%;
+
+    --warning: var(--amber-500);
+    --warning-foreground: 0 0% 100%;
+
+    --border: var(--warm-200);
+    --input: var(--warm-200);
+    --ring: var(--leaf-500);
+
+    --radius: 0.5rem;
+
+    /* Tipografia ------------------------------------------------------ */
+    /* --font-sans, --font-mono e --font-display sao injetadas via next/font
+       em app/layout.tsx (DM Sans / DM Mono / Cormorant Garamond).
+       Tailwind: font-sans (UI), font-mono (caps tracked), font-display
+       (wordmark TECIL, titulos editoriais). */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Compensa header sticky para anchors (#colecoes etc.) */
+    scroll-padding-top: 6rem;
+  }
+  @media (min-width: 640px) {
+    html {
+      scroll-padding-top: 5rem;
+    }
+  }
+  body {
+    font-family: var(--font-sans);
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px hsl(var(--leaf-500) / 0.25);
+    border-radius: var(--radius);
+  }
+}
