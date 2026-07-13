@@ -30,7 +30,7 @@ export default function Page() {
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-warm-600">
               Preço por metro e disponibilidade sempre atualizados. Escolheu?
               É só chamar no WhatsApp para fechar o pedido — corte mínimo de 3
-              metros e frete grátis para o Nordeste a partir de R$ 400.
+              metros e frete grátis para todo o Nordeste.
             </p>
           </div>
         </section>

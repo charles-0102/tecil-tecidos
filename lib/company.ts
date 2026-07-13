@@ -40,18 +40,40 @@ export const COMPANY = {
   },
 
   policies: {
-    freteGratis: "Frete grátis para o Nordeste a partir de R$ 400",
+    freteGratis: "Frete grátis para todo o Nordeste",
     parcelamento: "Parcele no cartão de crédito",
     pix: "5% de desconto no PIX",
     corteMinimo: "Corte mínimo de 3 metros por tecido",
   },
 
-  // Política de frete (valores mocados de referência — trocar pela tabela
-  // real das transportadoras quando fechada). Detalhes na página /frete.
+  // Política de frete por localidade (valores mocados de referência —
+  // ajustar quando a tabela real fechar). Detalhes na página /frete.
+  // Regra: pedido >= `minimo` ganha frete grátis; abaixo disso o frete é
+  // cotado no WhatsApp. `minimo: 0` = grátis para qualquer pedido.
   shipping: {
     regiao: "Nordeste",
-    freteGratisMinimo: 400,
-    freteGratisPesoMaxKg: 20,
+    faixas: [
+      {
+        destino: "Caruaru, Santa Cruz do Capibaribe e Toritama",
+        minimo: 0,
+        prazo: "até 3 dias úteis",
+      },
+      {
+        destino: "Recife e região metropolitana",
+        minimo: 300,
+        prazo: "até 10 dias úteis",
+      },
+      {
+        destino: "Demais cidades de Pernambuco",
+        minimo: 600,
+        prazo: "até 10 dias úteis",
+      },
+      {
+        destino: "Demais estados do Nordeste",
+        minimo: 1000,
+        prazo: "até 10 dias úteis",
+      },
+    ],
     estados: [
       "Alagoas",
       "Bahia",
@@ -62,13 +84,6 @@ export const COMPANY = {
       "Piauí",
       "Rio Grande do Norte",
       "Sergipe",
-    ],
-    // Faixas p/ pedidos abaixo do mínimo (~200 g por metro de tricoline).
-    faixas: [
-      { peso: "Até 2 kg", metros: "até ~10 m de tecido", valor: 24.9 },
-      { peso: "2 a 5 kg", metros: "até ~25 m de tecido", valor: 34.9 },
-      { peso: "5 a 10 kg", metros: "até ~50 m de tecido", valor: 49.9 },
-      { peso: "10 a 20 kg", metros: "até ~100 m de tecido", valor: 69.9 },
     ],
   },
 } as const;

@@ -5,7 +5,7 @@ import { TecilSelo } from "@/components/brand/TecilSelo";
 const numeros = [
   { value: "20+", label: "Anos de mercado" },
   { value: "100%", label: "Algodão premium" },
-  { value: "R$ 400+", label: "Frete grátis no Nordeste" },
+  { value: "9", label: "Estados com frete grátis" },
   { value: "3 m", label: "Corte mínimo" },
 ];
 
@@ -30,8 +30,9 @@ export function Sobre() {
               <p>
                 Trabalhamos com linhas consagradas — Peripan e Santanense nos
                 lisos, tricolines estampadas na dose certa de personalidade —
-                e para todo o Nordeste o frete é grátis a partir de R$ 400,
-                com corte mínimo de apenas 3 metros.
+                e enviamos com frete grátis para todo o Nordeste (na região de
+                Caruaru, para qualquer pedido), com corte mínimo de apenas 3
+                metros.
               </p>
               <p>
                 Aqui o atendimento é de loja de bairro, porque somos uma: você

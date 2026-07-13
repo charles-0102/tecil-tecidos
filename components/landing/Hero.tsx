@@ -84,7 +84,7 @@ export function Hero() {
             href="/frete"
             className="underline decoration-warm-300 underline-offset-2 transition-colors hover:text-leaf-700"
           >
-            Frete grátis no Nordeste a partir de R$ 400*
+            Frete grátis para o Nordeste*
           </Link>{" "}
           · Parcele no cartão · 5% off no PIX
         </p>

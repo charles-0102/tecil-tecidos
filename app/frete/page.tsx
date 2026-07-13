@@ -1,34 +1,35 @@
 import type { Metadata } from "next";
-import { MessageCircle, Scale, Truck } from "lucide-react";
+import { MapPin, MessageCircle, Truck } from "lucide-react";
 
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { COMPANY, whatsappHref } from "@/lib/company";
-import { formatBRL } from "@/lib/format";
+import { formatBRLInteiro } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Política de frete",
   description:
-    "Frete grátis para todo o Nordeste em pedidos a partir de R$ 400 (até 20 kg). Veja a tabela de valores por peso e como funciona o envio da Tecil Tecidos.",
+    "Frete grátis para todo o Nordeste: sem pedido mínimo na região de Caruaru e a partir de um valor por localidade no restante. Veja valores e prazos de entrega.",
 };
 
 const regras = [
   {
     icon: Truck,
-    title: "Frete grátis",
-    description: `Pedidos a partir de R$ ${COMPANY.shipping.freteGratisMinimo} e até ${COMPANY.shipping.freteGratisPesoMaxKg} kg têm frete grátis para todo o Nordeste.`,
+    title: "Na nossa região",
+    description:
+      "Caruaru, Santa Cruz do Capibaribe e Toritama têm frete grátis para qualquer pedido, sem valor mínimo.",
   },
   {
-    icon: Scale,
-    title: `Abaixo de R$ ${COMPANY.shipping.freteGratisMinimo}`,
+    icon: MapPin,
+    title: "No restante do Nordeste",
     description:
-      "O frete é cobrado por faixa de peso, conforme a tabela abaixo — confirmamos o valor exato no WhatsApp antes de você fechar.",
+      "Frete grátis a partir de um pedido mínimo que varia com a distância — quanto mais perto de Caruaru, menor o mínimo.",
   },
   {
     icon: MessageCircle,
-    title: `Acima de ${COMPANY.shipping.freteGratisPesoMaxKg} kg`,
+    title: "Abaixo do mínimo",
     description:
-      "Pedido grande merece frete negociado: cotamos com nossas transportadoras e você aprova o valor antes de fechar.",
+      "Sem problema: a gente cota o frete com nossas transportadoras no WhatsApp e você aprova o valor antes de fechar.",
   },
 ];
 
@@ -51,13 +52,14 @@ export default function Page() {
               Política de frete
             </p>
             <h1 className="text-balance font-display text-4xl font-semibold leading-[1.05] tracking-tight text-warm-900 md:text-5xl">
-              Frete grátis para o Nordeste, a partir de R$ 400.
+              Frete grátis para todo o Nordeste.
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-warm-600">
-              Enviamos da nossa loja em {COMPANY.location.display} para todo o
-              Nordeste. Abaixo estão as regras e os valores de referência — o
-              frete exato do seu pedido é sempre confirmado no WhatsApp antes
-              de você fechar.
+              Enviamos da nossa loja em {COMPANY.location.display} — e quanto
+              mais perto da gente, menor o pedido mínimo: na nossa região o
+              frete é grátis para qualquer compra. Veja os valores e prazos
+              abaixo; o frete é sempre confirmado no WhatsApp antes de você
+              fechar.
             </p>
           </div>
         </section>
@@ -81,56 +83,63 @@ export default function Page() {
         <section className="border-b border-warm-150 bg-warm-0">
           <div className="container py-12 md:py-16">
             <h2 className="font-display text-2xl font-semibold tracking-tight text-warm-900 md:text-3xl">
-              Tabela de frete por peso
+              Frete grátis e prazo por localidade
             </h2>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-warm-600">
-              Vale para pedidos abaixo de R$ {shipping.freteGratisMinimo}, com
-              envio dentro do Nordeste.
+              O valor da tabela é o pedido mínimo para ganhar frete grátis no
+              destino. Abaixo dele, cotamos o frete no WhatsApp.
             </p>
 
             <div className="mt-6 overflow-x-auto rounded-lg border border-warm-200">
-              <table className="w-full min-w-[480px] text-sm">
+              <table className="w-full min-w-[520px] text-sm">
                 <thead>
                   <tr className="border-b border-warm-200 bg-warm-100 text-left">
                     <th className="px-5 py-3 font-semibold text-[11px] uppercase tracking-wider text-warm-500">
-                      Peso do pedido
+                      Destino
                     </th>
                     <th className="px-5 py-3 font-semibold text-[11px] uppercase tracking-wider text-warm-500">
-                      Em tecido, isso dá
+                      Frete grátis a partir de
                     </th>
                     <th className="px-5 py-3 text-right font-semibold text-[11px] uppercase tracking-wider text-warm-500">
-                      Frete
+                      Prazo estimado
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  {shipping.faixas.map((faixa) => (
-                    <tr key={faixa.peso} className="border-b border-warm-150">
-                      <td className="px-5 py-3.5 font-medium text-warm-900">{faixa.peso}</td>
-                      <td className="px-5 py-3.5 text-warm-600">{faixa.metros}</td>
-                      <td className="px-5 py-3.5 text-right font-semibold tabular-nums text-warm-900">
-                        {formatBRL(faixa.valor)}
+                  {shipping.faixas.map((faixa, i) => (
+                    <tr
+                      key={faixa.destino}
+                      className={
+                        faixa.minimo === 0
+                          ? "border-b border-warm-150 bg-leaf-50/60"
+                          : i < shipping.faixas.length - 1
+                            ? "border-b border-warm-150"
+                            : ""
+                      }
+                    >
+                      <td className="px-5 py-3.5 font-medium text-warm-900">{faixa.destino}</td>
+                      <td className="px-5 py-3.5">
+                        {faixa.minimo === 0 ? (
+                          <span className="font-semibold text-leaf-700">
+                            Qualquer pedido
+                          </span>
+                        ) : (
+                          <span className="font-semibold tabular-nums text-warm-900">
+                            {formatBRLInteiro(faixa.minimo)}
+                          </span>
+                        )}
                       </td>
+                      <td className="px-5 py-3.5 text-right text-warm-600">{faixa.prazo}</td>
                     </tr>
                   ))}
-                  <tr className="bg-leaf-50/60">
-                    <td className="px-5 py-3.5 font-medium text-warm-900">
-                      Acima de {shipping.freteGratisPesoMaxKg} kg
-                    </td>
-                    <td className="px-5 py-3.5 text-warm-600">pedidos grandes (100 m ou mais)</td>
-                    <td className="px-5 py-3.5 text-right font-semibold text-leaf-700">
-                      Cotação no WhatsApp
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             </div>
 
             <p className="mt-3 max-w-2xl text-xs leading-relaxed text-warm-500">
-              Valores de referência. A conta dos metros considera tricoline de
-              1,50 m de largura (cerca de 200 g por metro) — tecidos mais
-              encorpados pesam mais. O frete exato é confirmado no WhatsApp
-              junto com o pedido.
+              Valores e prazos de referência, contados a partir da confirmação
+              do pagamento. O frete e o prazo exatos do seu pedido são
+              confirmados no WhatsApp antes de fechar.
             </p>
           </div>
         </section>
@@ -197,7 +206,7 @@ export default function Page() {
                 </h2>
                 <p className="mt-1 text-sm leading-relaxed text-warm-600">
                   Manda a lista de tecidos e a sua cidade — a gente responde
-                  com o valor certinho.
+                  com o valor e o prazo certinhos.
                 </p>
               </div>
               <a
