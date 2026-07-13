@@ -9,7 +9,7 @@ import { formatBRLInteiro } from "@/lib/format";
 export const metadata: Metadata = {
   title: "Política de frete",
   description:
-    "Frete grátis para todo o Nordeste: sem pedido mínimo na região de Caruaru e a partir de um valor por localidade no restante. Veja valores e prazos de entrega.",
+    "Frete grátis para todo o Nordeste a partir de um pedido mínimo por localidade — desde R$ 300 na região de Caruaru. Veja valores e prazos de entrega.",
 };
 
 const regras = [
@@ -17,7 +17,7 @@ const regras = [
     icon: Truck,
     title: "Na nossa região",
     description:
-      "Caruaru, Santa Cruz do Capibaribe e Toritama têm frete grátis para qualquer pedido, sem valor mínimo.",
+      "Caruaru, Santa Cruz do Capibaribe e Toritama têm frete grátis a partir de R$ 300, com entrega em até 5 dias úteis.",
   },
   {
     icon: MapPin,
@@ -56,10 +56,9 @@ export default function Page() {
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-warm-600">
               Enviamos da nossa loja em {COMPANY.location.display} — e quanto
-              mais perto da gente, menor o pedido mínimo: na nossa região o
-              frete é grátis para qualquer compra. Veja os valores e prazos
-              abaixo; o frete é sempre confirmado no WhatsApp antes de você
-              fechar.
+              mais perto da gente, menor o pedido mínimo para ganhar frete
+              grátis. Veja os valores e prazos abaixo; o frete é sempre
+              confirmado no WhatsApp antes de você fechar.
             </p>
           </div>
         </section>
@@ -109,25 +108,11 @@ export default function Page() {
                   {shipping.faixas.map((faixa, i) => (
                     <tr
                       key={faixa.destino}
-                      className={
-                        faixa.minimo === 0
-                          ? "border-b border-warm-150 bg-leaf-50/60"
-                          : i < shipping.faixas.length - 1
-                            ? "border-b border-warm-150"
-                            : ""
-                      }
+                      className={i < shipping.faixas.length - 1 ? "border-b border-warm-150" : ""}
                     >
                       <td className="px-5 py-3.5 font-medium text-warm-900">{faixa.destino}</td>
-                      <td className="px-5 py-3.5">
-                        {faixa.minimo === 0 ? (
-                          <span className="font-semibold text-leaf-700">
-                            Qualquer pedido
-                          </span>
-                        ) : (
-                          <span className="font-semibold tabular-nums text-warm-900">
-                            {formatBRLInteiro(faixa.minimo)}
-                          </span>
-                        )}
+                      <td className="px-5 py-3.5 font-semibold tabular-nums text-warm-900">
+                        {formatBRLInteiro(faixa.minimo)}
                       </td>
                       <td className="px-5 py-3.5 text-right text-warm-600">{faixa.prazo}</td>
                     </tr>

@@ -12,7 +12,7 @@ const items: {
     icon: Truck,
     title: "Frete grátis no Nordeste",
     description:
-      "Sempre grátis na região de Caruaru; no restante do Nordeste, a partir de um mínimo por localidade.",
+      "Grátis a partir de um pedido mínimo por localidade — desde R$ 300 na região de Caruaru.",
     link: { href: "/frete", label: "Ver política de frete" },
   },
   {

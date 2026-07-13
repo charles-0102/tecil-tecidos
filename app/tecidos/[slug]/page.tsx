@@ -9,12 +9,8 @@ import { TecidoGrid } from "@/components/catalog/TecidoGrid";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { COMPANY, whatsappHref } from "@/lib/company";
-import {
-  CATEGORIAS,
-  TECIDOS,
-  getTecidoBySlug,
-  getTecidosByCategoria,
-} from "@/lib/data/products";
+import { CATEGORIAS, getTecidosByCategoria } from "@/lib/data/products";
+import { getTecidoBySlug, getTecidos } from "@/lib/tiny/catalog";
 import { formatBRL } from "@/lib/format";
 import type { Tecido } from "@/types/product";
 
@@ -22,12 +18,13 @@ interface PageProps {
   params: { slug: string };
 }
 
-export function generateStaticParams() {
-  return TECIDOS.map((t) => ({ slug: t.slug }));
+export async function generateStaticParams() {
+  const tecidos = await getTecidos();
+  return tecidos.map((t) => ({ slug: t.slug }));
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  const tecido = getTecidoBySlug(params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const tecido = await getTecidoBySlug(params.slug);
   if (!tecido) return { title: "Tecido não encontrado" };
   return {
     title: tecido.nome,
@@ -43,12 +40,12 @@ function buildWhatsappMessage(tecido: Tecido): string {
   );
 }
 
-export default function Page({ params }: PageProps) {
-  const tecido = getTecidoBySlug(params.slug);
+export default async function Page({ params }: PageProps) {
+  const tecido = await getTecidoBySlug(params.slug);
   if (!tecido) notFound();
 
   const categoria = CATEGORIAS[tecido.categoria];
-  const relacionados = getTecidosByCategoria(tecido.categoria)
+  const relacionados = getTecidosByCategoria(await getTecidos(), tecido.categoria)
     .filter((t) => t.id !== tecido.id)
     .slice(0, 4);
   const totalCorteMinimo = tecido.precoMetro * tecido.corteMinimo;

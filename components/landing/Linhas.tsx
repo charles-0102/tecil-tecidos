@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { CATEGORIAS, CATEGORIA_SLUGS, getTecidosByCategoria } from "@/lib/data/products";
+import { getTecidos } from "@/lib/tiny/catalog";
 import { cn } from "@/lib/utils";
 import type { CategoriaSlug } from "@/types/product";
 
@@ -23,21 +24,22 @@ const FORNECEDORES: Record<
   },
 };
 
-const cards = CATEGORIA_SLUGS.map((slug) => {
-  const categoria = CATEGORIAS[slug];
-  const tecidos = getTecidosByCategoria(slug);
-  return {
-    slug,
-    titulo: categoria.titulo,
-    eyebrow: categoria.eyebrow,
-    intro: categoria.intro,
-    fornecedor: FORNECEDORES[slug],
-    swatches: tecidos.slice(0, MAX_SWATCHES),
-    total: tecidos.length,
-  };
-});
+export async function Linhas() {
+  const todos = await getTecidos();
+  const cards = CATEGORIA_SLUGS.map((slug) => {
+    const categoria = CATEGORIAS[slug];
+    const tecidos = getTecidosByCategoria(todos, slug);
+    return {
+      slug,
+      titulo: categoria.titulo,
+      eyebrow: categoria.eyebrow,
+      intro: categoria.intro,
+      fornecedor: FORNECEDORES[slug],
+      swatches: tecidos.slice(0, MAX_SWATCHES),
+      total: tecidos.length,
+    };
+  });
 
-export function Linhas() {
   return (
     <section id="linhas" className="bg-leaf-900">
       <div className="container py-20">
@@ -102,7 +104,9 @@ export function Linhas() {
                   ))}
                 </div>
                 <span className="font-semibold text-[11px] uppercase tracking-[0.08em] text-leaf-100/60">
-                  {c.total} {c.total === 1 ? "tecido" : "tecidos"}
+                  {c.total > 0
+                    ? `${c.total} ${c.total === 1 ? "tecido" : "tecidos"}`
+                    : "Em breve no site"}
                 </span>
               </div>
 

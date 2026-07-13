@@ -12,7 +12,6 @@ import {
   CATEGORIAS,
   CATEGORIA_SLUGS,
   DISPONIBILIDADE_LABEL,
-  TECIDOS,
   getCores,
   isCategoriaSlug,
 } from "@/lib/data/products";
@@ -36,7 +35,7 @@ function matchesQuery(tecido: Tecido, query: string): boolean {
     .some((field) => normalize(field).includes(q));
 }
 
-export function CatalogClient() {
+export function CatalogClient({ tecidos }: { tecidos: Tecido[] }) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -59,10 +58,10 @@ export function CatalogClient() {
     [router, searchParams],
   );
 
-  const cores = React.useMemo(() => getCores(), []);
+  const cores = React.useMemo(() => getCores(tecidos), [tecidos]);
 
   const filtrados = React.useMemo(() => {
-    let result = TECIDOS.filter((t) => {
+    let result = tecidos.filter((t) => {
       if (categoria !== "todas" && t.categoria !== categoria) return false;
       if (cor !== "todas" && t.cor !== cor) return false;
       if (disponibilidade !== "todas" && t.disponibilidade !== disponibilidade)
@@ -79,7 +78,7 @@ export function CatalogClient() {
       result = [...result].sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
     }
     return result;
-  }, [categoria, cor, disponibilidade, q, ordenar]);
+  }, [tecidos, categoria, cor, disponibilidade, q, ordenar]);
 
   const hasFilters =
     categoria !== "todas" || cor !== "todas" || disponibilidade !== "todas" || q.trim() !== "";

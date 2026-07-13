@@ -3,9 +3,10 @@ import { ArrowRight } from "lucide-react";
 
 import { TecidoGrid } from "@/components/catalog/TecidoGrid";
 import { getDestaques } from "@/lib/data/products";
+import { getTecidos } from "@/lib/tiny/catalog";
 
-export function Destaques() {
-  const destaques = getDestaques().slice(0, 8);
+export async function Destaques() {
+  const destaques = getDestaques(await getTecidos()).slice(0, 8);
 
   return (
     <section id="destaques" className="border-b border-warm-150 bg-warm-0">

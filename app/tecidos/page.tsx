@@ -6,7 +6,7 @@ import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { tecidoGridClass } from "@/components/catalog/TecidoGrid";
 import { Skeleton } from "@/components/ui/skeleton";
-import { TECIDOS } from "@/lib/data/products";
+import { getTecidos } from "@/lib/tiny/catalog";
 
 export const metadata: Metadata = {
   title: "Catálogo de tecidos",
@@ -14,7 +14,9 @@ export const metadata: Metadata = {
     "Todos os tecidos da Tecil: algodão premium Peripan e Santanense, mistos e tricolines estampadas. Preço por metro e disponibilidade em tempo real.",
 };
 
-export default function Page() {
+export default async function Page() {
+  const tecidos = await getTecidos();
+
   return (
     <>
       <Header />
@@ -22,7 +24,7 @@ export default function Page() {
         <section className="border-b border-warm-150 bg-gradient-to-b from-warm-50 to-leaf-50/40">
           <div className="container py-12 md:py-16">
             <p className="mb-3 font-semibold text-xs uppercase tracking-[0.08em] text-leaf-700">
-              Catálogo · {TECIDOS.length} tecidos
+              Catálogo · {tecidos.length} tecidos
             </p>
             <h1 className="text-balance font-display text-4xl font-semibold leading-[1.05] tracking-tight text-warm-900 md:text-5xl">
               Todos os nossos tecidos.
@@ -38,7 +40,7 @@ export default function Page() {
         <section className="bg-warm-50">
           <div className="container py-10 md:py-14">
             <Suspense fallback={<CatalogSkeleton />}>
-              <CatalogClient />
+              <CatalogClient tecidos={tecidos} />
             </Suspense>
           </div>
         </section>

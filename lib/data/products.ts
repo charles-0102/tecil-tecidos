@@ -1,4 +1,5 @@
-// Catálogo mockado da Tecil Tecidos — sem banco de dados por enquanto.
+// Configuração das linhas/categorias da vitrine + catálogo mockado usado
+// como FALLBACK quando a API do Tiny ERP falha (fonte real: lib/tiny/catalog).
 // Produtos baseados nas linhas reais da loja (Peripan, Santanense,
 // Tricoline Estampada); estoque e medidas são fictícios.
 
@@ -83,7 +84,7 @@ const TRICOLINE_BASE = {
   corteMinimo: 3,
 };
 
-export const TECIDOS: Tecido[] = [
+export const TECIDOS_MOCK: Tecido[] = [
   // ————— Peripan · Algodão Premium (liso) —————
   {
     id: "per-001",
@@ -352,21 +353,24 @@ export const TECIDOS: Tecido[] = [
   },
 ];
 
-export function getTecidoBySlug(slug: string): Tecido | undefined {
-  return TECIDOS.find((t) => t.slug === slug);
+// Helpers puros sobre uma lista de tecidos (vinda do ERP ou do mock).
+
+export function getTecidosByCategoria(
+  tecidos: Tecido[],
+  categoria: CategoriaSlug,
+): Tecido[] {
+  return tecidos.filter((t) => t.categoria === categoria);
 }
 
-export function getTecidosByCategoria(categoria: CategoriaSlug): Tecido[] {
-  return TECIDOS.filter((t) => t.categoria === categoria);
-}
-
-export function getDestaques(): Tecido[] {
-  return TECIDOS.filter((t) => t.destaque);
+/** Tecidos marcados como destaque; sem nenhum marcado, os primeiros da lista. */
+export function getDestaques(tecidos: Tecido[]): Tecido[] {
+  const marcados = tecidos.filter((t) => t.destaque);
+  return marcados.length > 0 ? marcados : tecidos.slice(0, 8);
 }
 
 /** Cores únicas do catálogo, para o filtro de cor. */
-export function getCores(): string[] {
-  return [...new Set(TECIDOS.map((t) => t.cor))].sort((a, b) =>
+export function getCores(tecidos: Tecido[]): string[] {
+  return [...new Set(tecidos.map((t) => t.cor))].sort((a, b) =>
     a.localeCompare(b, "pt-BR"),
   );
 }

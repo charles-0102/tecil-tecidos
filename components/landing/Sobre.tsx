@@ -30,9 +30,8 @@ export function Sobre() {
               <p>
                 Trabalhamos com linhas consagradas — Peripan e Santanense nos
                 lisos, tricolines estampadas na dose certa de personalidade —
-                e enviamos com frete grátis para todo o Nordeste (na região de
-                Caruaru, para qualquer pedido), com corte mínimo de apenas 3
-                metros.
+                e enviamos para todo o Nordeste com frete grátis a partir de
+                um valor por localidade, com corte mínimo de apenas 3 metros.
               </p>
               <p>
                 Aqui o atendimento é de loja de bairro, porque somos uma: você

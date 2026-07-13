@@ -49,18 +49,18 @@ export const COMPANY = {
   // Política de frete por localidade (valores mocados de referência —
   // ajustar quando a tabela real fechar). Detalhes na página /frete.
   // Regra: pedido >= `minimo` ganha frete grátis; abaixo disso o frete é
-  // cotado no WhatsApp. `minimo: 0` = grátis para qualquer pedido.
+  // cotado no WhatsApp.
   shipping: {
     regiao: "Nordeste",
     faixas: [
       {
         destino: "Caruaru, Santa Cruz do Capibaribe e Toritama",
-        minimo: 0,
-        prazo: "até 3 dias úteis",
+        minimo: 300,
+        prazo: "até 5 dias úteis",
       },
       {
         destino: "Recife e região metropolitana",
-        minimo: 300,
+        minimo: 500,
         prazo: "até 10 dias úteis",
       },
       {
